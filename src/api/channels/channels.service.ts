@@ -10,12 +10,7 @@ export class ChannelsService {
     @InjectConnection() private connection: Connection,
   ) {}
   async getMany() {
-    console.log(Channel.name);
     const channels = await this.channelModel.find({}).exec();
-
-    const abc = await this.connection.db.listCollections().toArray();
-    console.log('abc: ', abc);
-    console.log(channels);
     return {
       channels,
     };
